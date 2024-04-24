@@ -1,8 +1,6 @@
 <?php
 namespace App;
 
-use App\Improved\InvalidArgumentException;
-
 class OtherCrmSender implements SenderInterface
 {
     protected array $settings;
@@ -23,7 +21,7 @@ class OtherCrmSender implements SenderInterface
     public function setCredentials(array $settings)
     {
         if (empty($settings['token'])) {
-            throw new InvalidArgumentException('Auth token must be set!');
+            throw new \InvalidArgumentException('Auth token must be set!');
         }
 
         $this->settings = $settings;
