@@ -1,5 +1,5 @@
 <?php
-namespace App\Improved;
+namespace App;
 
 class UseCrmManagerController
 {

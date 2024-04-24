@@ -1,7 +1,9 @@
 <?php
-namespace App\Improved;
+namespace App;
 
-class BazSender implements Sender
+use App\Improved\InvalidArgumentException;
+
+class OtherCrmSender implements SenderInterface
 {
     protected array $settings;
 
@@ -20,12 +22,8 @@ class BazSender implements Sender
 
     public function setCredentials(array $settings)
     {
-        if (empty($settings['user'])) {
-            throw new InvalidArgumentException('User must be set!');
-        }
-
-        if (empty($settings['passwd'])) {
-            throw new InvalidArgumentException('Password must be set!');
+        if (empty($settings['token'])) {
+            throw new InvalidArgumentException('Auth token must be set!');
         }
 
         $this->settings = $settings;
